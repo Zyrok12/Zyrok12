@@ -139,7 +139,7 @@ Python · Pandas · Scikit-learn · Healthcare Data · Data Visualisation
 
 ### Deep Learning OOP Group Project
 
-Private/restricted university project.
+Repository: [Zyrok12/2526-m1geniomhe-group-7-main](https://github.com/Zyrok12/2526-m1geniomhe-group-7-main)
 
 **Project focus:**
 
