@@ -42,7 +42,7 @@ Collaborative projects developed during the M1 year. Code lives on team reposito
 | Project | What I built | Stack |
 |---|---|---|
 | **[Deep Learning Framework](https://github.com/Zyrok12/2526-m1geniomhe-group-7-main)** | Matrix-based autograd engine with forward/backward propagation across addition, matmul, ReLU, exp/log, and mean/sum · Module/Linear API modelled on PyTorch · SGD with momentum · MSE loss · dataset loaders for TCGA (GDC API), MNIST, and Iris | Python · NumPy |
-| **CardI-HACK** *(data challenge)* | SNP clustering to reduce LD redundancy · PRS construction for MACE prediction · dual-outcome classifier (MACE + severity) on clinical genetic data | Python · scikit-learn · pandas |
+| **[CardI-HACK](https://github.com/georgyzaouk/Cardi-HACK-data-challenge-group6)** *(data challenge)* | SNP clustering to reduce LD redundancy · PRS construction for MACE prediction · dual-outcome classifier (MACE + severity) on clinical genetic data | Python · scikit-learn · pandas |
 | **[BruAnnoPipe](https://github.com/crakshay1/BruAnnoPipe)** | Automated genome annotation pipeline: TE detection via BLASTn (TrepDB/URGIDB) and Censor soft-masking · gene prediction with Augustus and FGENESH · protein validation (BLASTp against NR/SwissProt) · GFF3 generation for Artemis | Python · BLAST · Selenium |
 | **[BrunOOP](https://github.com/crakshay1/BrunOOP)** | scikit-learn-style ML library from scratch: base Estimator abstraction, LinearModel, DecisionTree, KMeans, Pipeline, train/test split, metrics | Python · OOP |
 | **[COPunD](https://github.com/georgyzaouk/COPunD)** | Cellular automaton model of tissue-level cellular dynamics in healthy vs. COPD-like conditions | Python · NumPy |
