@@ -1,173 +1,74 @@
+# Bruno Young de Castro
 
-# Hi, I'm Bruno Young de Castro
+**Computational Genomics · Epigenomics · ML/AI for Precision Medicine**
 
-M.Sc. student in **Genomics, Informatics, Mathematics & AI for Health and Environment** at **Université Paris-Saclay**, with a background in **Cell and Molecular Biology** from the **University of South Florida**.
+M.Sc. student in [GENIOMHE](https://www.universite-paris-saclay.fr/en/education/masters-degree/bioinformatics/computational-biology/m2-genomics-informatics-mathematics-and-artificial-intelligence-health-and-environment-geniomhe) 
+at **Université Paris-Saclay** (IDEX Merit Scholar). B.S. Cell & Molecular Biology, University 
+of South Florida (4.0 GPA, Summa Cum Laude). Based in Sevilla, Spain.
 
-I am interested in computational genomics, epigenomics, pharmacogenomics, and the use of machine learning/artificial intelligence in biomedical research.
-
-My work combines wet-lab experience, statistical genomics, molecular simulation, and bioinformatics pipeline development.
-
----
-
-## Research & Technical Interests
-
-- Computational genomics and epigenomics  
-- DNA methylation analysis and EWAS pipelines  
-- Pharmacogenomics and variant interpretation  
-- Molecular dynamics simulations of DNA repair mechanisms  
-- Machine learning and deep learning for biomedical data  
-- Reproducible bioinformatics workflows  
-- Scientific programming in Python, R, Bash, and Linux environments  
+I work at the intersection of statistical genomics, machine learning, and bioinformatics 
+pipeline development. My focus is cancer genomics, epigenomics, and translational 
+computational biology.
 
 ---
 
-## Technical Skills
+## Publication
 
-### Programming & Data Analysis
+**Young de Castro B.**, Parsons R.F., van der Vaart A.  
+[Register-Shifted Structures in Uracil:Adenine and Uracil:Guanine Base-Paired DNA](https://doi.org/10.1021/acs.biochem.5c00796)  
+*ACS Biochemistry*, 2025 · DOI: 10.1021/acs.biochem.5c00796
 
-Python · R · Bash/Linux · Git · Docker
-
-### Python
-
-NumPy · Pandas · Scikit-learn · PyTorch · Biopython · Matplotlib
-
-### R / Bioconductor
-
-minfi · limma · DESeq2 · ggplot2 · EnhancedVolcano · pheatmap
-
-### Genomics & Bioinformatics
-
-DNA methylation analysis · Illumina 450K/EPIC arrays · NGS QC · Variant calling · Variant annotation · EWAS/GWAS workflows
-
-### Molecular Simulation
-
-CHARMM · VMD · Molecular dynamics · HPC/cloud computing
-
-### Databases & Tools
-
-dbSNP · ClinVar · ClinPGx · PharmVar · Ensembl · UCSC Genome Browser · GEO
+Second-author manuscript in preparation (Uddin Lab, USF) — epigenome-wide association 
+study of EGR1/NR3C1 differential methylation in PTSD (n = 456, Illumina 450K).
 
 ---
 
-## Featured Projects
+## Projects
 
-### BruAnnoPipe — Bioinformatics Annotation Pipeline
-
-Repository: [crakshay1/BruAnnoPipe](https://github.com/crakshay1/BruAnnoPipe)
-
-Collaborative bioinformatics project focused on genome annotation and sequence analysis.
-
-**My contribution:**
-
-- Contributed to the original collaborative/private development of the project
-- Worked on bioinformatics workflow logic and result organisation
-- Helped with notebook-based analysis and documentation
-- Supported debugging and final project/report preparation
-
-**Technologies:**
-
-Python · Jupyter Notebook · Bioinformatics · Genome Annotation · BLAST · Workflow Development
-
-> Note: The public repository was uploaded from a previous collaborative/private version, so the original full commit history may not be visible.
+### [TCGA-BRCA Differential Expression Analysis](https://github.com/Zyrok12/tcga-brca-differential-expression)
+Reproducible R/Bioconductor workflow on TCGA breast cancer RNA-seq data (primary tumor 
+vs. solid tissue normal). Covers DESeq2 differential expression, ERBB2 Kaplan-Meier and 
+Cox proportional hazards survival analysis, LASSO classifier with cross-validated lambda 
+selection, and Gene Ontology enrichment.  
+`R` `DESeq2` `TCGAbiolinks` `survival` `glmnet` `clusterProfiler` `EnhancedVolcano`
 
 ---
 
-### COPunD — COPD Cellular Automaton Simulation
-
-Repository: [georgyzaouk/COPunD](https://github.com/georgyzaouk/COPunD)
-
-Computational biology project modelling cellular interactions in healthy and COPD-like tissue conditions.
-
-**My contribution:**
-
-- Contributed to the original collaborative/private version of the project
-- Helped develop and interpret the simulation workflow
-- Worked on code organisation, analysis, documentation, and reporting
-- Supported biological interpretation of model outputs
-
-**Technologies:**
-
-Python · Computational Biology · Cellular Automata · Simulation · Data Visualisation
-
-> Note: The public repository may not fully reflect the original contribution history because it was copied from a previous private development version.
+### [Deep Learning Framework from Scratch](https://github.com/Zyrok12/2526-m1geniomhe-group-7-main)
+Matrix-based autograd engine implementing forward and backward propagation across 
+addition, multiplication, matrix ops, ReLU, exp/log, and mean/sum. Built on top of this: 
+a Module/Linear API modelled on PyTorch, SGD with momentum, MSE loss, and dataset 
+loaders for TCGA (via GDC API), MNIST, and Iris. M1 GENIOMHE group project.  
+`Python` `NumPy` `Autograd` `OOP` `GDC API`
 
 ---
 
-### BrunOOP — Object-Oriented Machine Learning Library
+### Group Projects — M1 GENIOMHE, Université Paris-Saclay
 
-Repository: [crakshay1/BrunOOP](https://github.com/crakshay1/BrunOOP)
+Collaborative coursework projects. Code on team repositories.
 
-Python project focused on object-oriented programming principles and machine-learning workflow design.
-
-**My contribution:**
-
-- Contributed to the original collaborative/private development of the project
-- Worked on object-oriented Python design
-- Helped with structure, documentation, and testing/debugging
-
-**Technologies:**
-
-Python · Object-Oriented Programming · Machine Learning · Software Design
-
-> Note: The current public repository may show limited commit history because it was uploaded as a copied public version.
+| Project | What I built | Stack |
+|---|---|---|
+| **CardI-HACK** *(data challenge)* | SNP clustering to reduce LD redundancy · PRS construction for MACE prediction · dual-outcome classifier (MACE + severity) on clinical genetic data | Python · scikit-learn · pandas |
+| **[BruAnnoPipe](https://github.com/crakshay1/BruAnnoPipe)** | Bioinformatics annotation pipeline: TE detection via BLASTn (TrepDB/URGIDB) and Censor soft-masking · gene prediction with Augustus and FGENESH · protein validation (BLASTp against NR/SwissProt) · GFF3 generation for Artemis | Python · BLAST · Selenium · Jupyter |
+| **[BrunOOP](https://github.com/crakshay1/BrunOOP)** | scikit-learn-style ML library from scratch: base Estimator abstraction, LinearModel, DecisionTree, KMeans, Pipeline, train/test split, metrics | Python · OOP |
+| **[COPunD](https://github.com/georgyzaouk/COPunD)** | Cellular automaton model of tissue-level cellular dynamics in healthy vs COPD-like conditions | Python · NumPy |
 
 ---
 
-### Cardi-HACK Data Challenge
+## Skills
 
-Private/restricted collaborative project.
-
-**Project focus:**
-
-Healthcare data analysis and modelling in a data challenge setting.
-
-**My contribution:**
-
-- Data cleaning and preprocessing
-- Exploratory data analysis
-- Model development and evaluation
-- Results interpretation
-- Team documentation and reporting
-
-**Technologies:**
-
-Python · Pandas · Scikit-learn · Healthcare Data · Data Visualisation
-
-> The original repository is private/restricted, so this project is described as a case study without exposing private code, data, or university-owned material.
+**Languages:** Python (NumPy, Pandas, Scikit-learn, PyTorch, Biopython) · R (Bioconductor, DESeq2, minfi, limma, ggplot2) · Bash/Shell  
+**Genomics:** EWAS/GWAS pipelines · Illumina 450K/EPIC array analysis · Variant calling & annotation (GATK, Sentieon) · PGx interpretation · RNA-seq · NGS QC  
+**ML / AI:** Deep learning (PyTorch) · Autograd engines · LASSO · Survival analysis · Supervised classification & regression  
+**Compute:** HPC & cloud · Docker · Git · CHARMM molecular dynamics · VMD  
+**Databases:** ClinPGx · PharmVar · dbSNP · ClinVar · Ensembl · GEO · UCSC
 
 ---
 
-### Deep Learning OOP Group Project
+## Links
 
-Repository: [Zyrok12/2526-m1geniomhe-group-7-main](https://github.com/Zyrok12/2526-m1geniomhe-group-7-main)
+[![ORCID](https://img.shields.io/badge/ORCID-0009--0001--5757--2056-brightgreen?logo=orcid)](https://orcid.org/0009-0001-5757-2056)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-brunoyoungdecastro-blue?logo=linkedin)](https://www.linkedin.com/in/brunoyoungdecastro/)
 
-**Project focus:**
-
-Deep learning and object-oriented programming in a collaborative academic setting.
-
-**My contribution:**
-
-- Python/OOP implementation
-- Deep-learning workflow development
-- Code organisation and debugging
-- Team documentation and project reporting
-
-**Technologies:**
-
-Python · PyTorch · Object-Oriented Programming · Deep Learning · Git/GitHub
-
-> The original repository is private/restricted, so this project is summarised without exposing private code or academic material.
-
----
-
-## Current Focus
-
-I am currently developing my skills in:
-
-- Advanced genomics and bioinformatics workflows
-- Pharmacogenomic variant interpretation
-- Machine learning and deep learning for biological data
-- Reproducible research pipelines
-- Clinical and translational bioinformatics
-
----
+📧 brunoyc@icloud.com
