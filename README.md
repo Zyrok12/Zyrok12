@@ -1,70 +1,122 @@
 # Bruno Young de Castro
 
-**Computational Genomics · Epigenomics · ML/AI for Precision Medicine**
+**Computational Genomics | Pharmacogenomics | ML/AI for Precision Medicine**
 
-M.Sc. student in [GENIOMHE](https://www.universite-paris-saclay.fr/en/education/masters-degree/bioinformatics/computational-biology/m2-genomics-informatics-mathematics-and-artificial-intelligence-health-and-environment-geniomhe)
-at **Université Paris-Saclay** (IDEX Merit Scholar). B.S. Cell & Molecular Biology,
-University of South Florida (4.0 GPA, Summa Cum Laude). Based in Sevilla, Spain.
+I am an M.Sc. student in Genomics, Informatics, Mathematics and AI for Health
+(GENIOMHE) at Universite Paris-Saclay and a Cell & Molecular Biology graduate
+from the University of South Florida.
 
-I work at the intersection of statistical genomics, machine learning, and bioinformatics
-pipeline development. My focus is cancer genomics, epigenomics, and translational
-computational biology.
+I build reproducible bioinformatics tools for pharmacogenomics, oncology-relevant
+genomics, assay-design review, and translational research. My current focus is
+turning sequencing data into evidence that is useful, auditable, and honest about
+its technical limits.
 
----
+## Featured Work
 
-## Publication
+### PGX Pipeline - private WES pharmacogenomics research platform
 
-**Young de Castro B.**, Parsons R.F., van der Vaart A.  
-[Register-Shifted Structures in Uracil:Adenine and Uracil:Guanine Base-Paired DNA](https://doi.org/10.1021/acs.biochem.5c00796)  
-*ACS Biochemistry*, 2025 · DOI: 10.1021/acs.biochem.5c00796
+Private research-use platform for local WES pharmacogenomics analysis. It accepts
+FASTQ, BAM/CRAM, raw VCF, or filtered VCF inputs and produces annotated SNV,
+indel, CNV, PGx, cohort analytics, MegaVCF, and report outputs.
 
-Second-author manuscript in preparation (Uddin Lab, USF) — epigenome-wide association
-study of EGR1/NR3C1 differential methylation in PTSD (n = 456, Illumina 450K).
+Key elements:
 
----
+- Local browser-based workflow with reproducible run manifests and audit-friendly
+  outputs.
+- VEP annotation and PGx enrichment using resources such as PharmGKB, CPIC,
+  PharmVar, DPWG, ClinVar, and gnomAD.
+- Star allele, diplotype, and phenotype layers for pharmacogene review.
+- Five-caller WES CNV ensemble using CNVkit, ExomeDepth, GATK-gCNV, CODEX2, and
+  panelcn.MOPS.
+- MegaVCF Explorer for combined SNV, indel, and CNV review.
+- Responder/non-responder analytics and ML workbench outputs for research
+  cohorts.
+- Validation work against GIAB HG002, CDC GeT-RM PGx consensus, and planted-truth
+  synthetic cohorts.
 
-## Projects
+Status: private repository, research-use software, not a diagnostic device.
+
+### [Panel Bias Auditor Lite](https://github.com/Zyrok12/Panel-Bias-Auditor)
+
+Dependency-light Python CLI and research toolkit for auditing genomic panel
+designs against biological and technical risk tracks.
+
+What it does:
+
+- Measures panel footprint and critical-region coverage.
+- Flags overlap with difficult regions such as low mappability, GC extremes,
+  homology, pseudogene-like sequence, and reference-bias tracks.
+- Checks whether supplied VCF variants fall inside or outside the panel and risk
+  tracks.
+- Produces Markdown, HTML, and JSON reports.
+- Derives empirical GC-extreme, homopolymer, and low-complexity tracks from FASTA
+  sequence.
+- Tests whether technical-risk tracks are enriched in assay failures or low
+  callability benchmark regions.
+- Converts public benchmark/callability BEDs into an assay-performance-style
+  schema for exploratory validation.
+
+Stack: Python, CLI design, BED/VCF parsing, JSON/Markdown/HTML reporting,
+unit tests, reproducible demo data.
 
 ### [TCGA-BRCA Differential Expression Analysis](https://github.com/Zyrok12/tcga-brca-differential-expression)
 
-Reproducible R/Bioconductor workflow on TCGA breast cancer RNA-seq data (primary tumor
-vs. solid tissue normal). Covers DESeq2 differential expression, ERBB2 Kaplan-Meier and
-Cox proportional hazards survival analysis, LASSO classifier with cross-validated lambda
-selection, and Gene Ontology enrichment.  
-`R` `DESeq2` `TCGAbiolinks` `survival` `glmnet` `clusterProfiler` `EnhancedVolcano`
+Reproducible R/Bioconductor workflow for TCGA breast cancer RNA-seq analysis.
 
----
+Includes:
 
-## Coursework Projects — M1 GENIOMHE, Université Paris-Saclay
+- TCGA-BRCA data retrieval with TCGAbiolinks.
+- DESeq2 differential expression analysis.
+- Volcano plot and heatmap visualization.
+- ERBB2 Kaplan-Meier and Cox survival analysis.
+- LASSO classifier with cross-validated lambda selection.
+- Gene Ontology enrichment with clusterProfiler.
 
-Collaborative projects developed during the M1 year. Code lives on team repositories.
+Stack: R, Bioconductor, TCGAbiolinks, DESeq2, survival, glmnet,
+clusterProfiler, EnhancedVolcano.
 
-| Project | What I built | Stack |
-|---|---|---|
-| **[Deep Learning Framework](https://github.com/Zyrok12/2526-m1geniomhe-group-7-main)** | Matrix-based autograd engine with forward/backward propagation across addition, matmul, ReLU, exp/log, and mean/sum · Module/Linear API modelled on PyTorch · SGD with momentum · MSE loss · dataset loaders for TCGA (GDC API), MNIST, and Iris | Python · NumPy |
-| **[CardI-HACK](https://github.com/georgyzaouk/Cardi-HACK-data-challenge-group6)** *(data challenge)* | SNP clustering to reduce LD redundancy · PRS construction for MACE prediction · dual-outcome classifier (MACE + severity) on clinical genetic data | Python · scikit-learn · pandas |
-| **[BruAnnoPipe](https://github.com/crakshay1/BruAnnoPipe)** | Automated genome annotation pipeline: TE detection via BLASTn (TrepDB/URGIDB) and Censor soft-masking · gene prediction with Augustus and FGENESH · protein validation (BLASTp against NR/SwissProt) · GFF3 generation for Artemis | Python · BLAST · Selenium |
-| **[BrunOOP](https://github.com/crakshay1/BrunOOP)** | scikit-learn-style ML library from scratch: base Estimator abstraction, LinearModel, DecisionTree, KMeans, Pipeline, train/test split, metrics | Python · OOP |
-| **[COPunD](https://github.com/georgyzaouk/COPunD)** | Cellular automaton model of tissue-level cellular dynamics in healthy vs. COPD-like conditions | Python · NumPy |
+### Coursework and Data-Challenge Projects
 
----
+- Deep learning/autograd framework from scratch in Python/NumPy.
+- CardI-HACK clinical genomics challenge: PRS and dual-outcome MACE/severity
+  classifier from clinical and genetic features.
+- Genome annotation pipeline coursework using BLAST, soft-masking, gene
+  prediction, and GFF3 generation.
+- scikit-learn-style OOP machine-learning library from scratch.
 
-## Skills
+## Publications
 
-**Languages:** Python (NumPy, Pandas, Scikit-learn, PyTorch, Biopython) · R (Bioconductor,
-DESeq2, minfi, limma, ggplot2) · Bash/Shell  
-**Genomics:** EWAS/GWAS pipelines · Illumina 450K/EPIC array analysis · Variant calling &
-annotation (GATK, Sentieon) · PGx interpretation · RNA-seq · NGS QC  
-**ML / AI:** Deep learning (PyTorch) · Autograd engines · LASSO · Survival analysis ·
-Supervised classification & regression  
-**Compute:** HPC & cloud · Docker · Git · CHARMM molecular dynamics · VMD  
-**Databases:** ClinPGx · PharmVar · dbSNP · ClinVar · Ensembl · GEO · UCSC
+**Young de Castro B.**, Parsons R.F., van der Vaart A.  
+[Register-Shifted Structures in Uracil:Adenine and Uracil:Guanine Base-Paired DNA](https://doi.org/10.1021/acs.biochem.5c00796)  
+*ACS Biochemistry*, 2025.
 
----
+Second-author manuscript in preparation with the Uddin Genomics Lab: epigenome-
+wide association study of glucocorticoid pathway methylation in PTSD.
+
+## Technical Stack
+
+**Languages:** Python, R, Bash, C/C++  
+**Python:** NumPy, Pandas, scikit-learn, PyTorch, Flask, unittest  
+**R/Bioconductor:** DESeq2, limma, minfi, TCGAbiolinks, clusterProfiler  
+**Genomics:** WES/PGx pipelines, VEP, GATK, FreeBayes, DeepVariant, CNVkit,
+ExomeDepth, CODEX2, panelcn.MOPS, PyPGx, PharmVar, CPIC, DPWG, PharmGKB,
+ClinVar, gnomAD, RNA-seq, EWAS/GWAS  
+**ML/statistics:** survival analysis, LASSO/Cox models, random forest, SHAP,
+Transformers, VAE, PLINK2 association testing, Fisher exact testing  
+**Compute:** Linux/WSL, HPC, Docker/Apptainer, Conda, Git, reproducible
+manifests
+
+## Research Principles
+
+- Keep clinical interpretation separate from technical call confidence.
+- Report limitations as clearly as successes.
+- Prefer reproducible manifests, versioned resources, and machine-readable
+  outputs.
+- Treat research signals as hypotheses until validated against appropriate truth
+  sets or orthogonal evidence.
 
 ## Links
 
-[![ORCID](https://img.shields.io/badge/ORCID-0009--0001--5757--2056-brightgreen?logo=orcid)](https://orcid.org/0009-0001-5757-2056)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-brunoyoungdecastro-blue?logo=linkedin)](https://www.linkedin.com/in/brunoyoungdecastro/)
-
-📧 brunoyc@icloud.com
+- [LinkedIn](https://www.linkedin.com/in/brunoyoungdecastro/)
+- [ORCID](https://orcid.org/0009-0001-5757-2056)
+- Email: brunoyc@icloud.com
