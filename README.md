@@ -84,7 +84,7 @@ Current validation work uses GIAB HG002, CDC GeT-RM pharmacogenomic consensus sa
 
 ## Research and publication
 
-- **First-author publication:** **Young de Castro B.**, Parsons R.F. and van der Vaart A. [Register-Shifted Structures in Uracil:Adenine and Uracil:Guanine Base-Paired DNA](https://doi.org/10.1021/acs.biochem.5c00796), *Biochemistry* (2025).
+- **Co-author publication:** **Young de Castro B.**, Parsons R.F. and van der Vaart A. [Register-Shifted Structures in Uracil:Adenine and Uracil:Guanine Base-Paired DNA](https://doi.org/10.1021/acs.biochem.5c00796), *Biochemistry* (2025).
 
 - **Ongoing research:** second-author manuscript in preparation with the Uddin Genomics Lab on an epigenome-wide association study of glucocorticoid-pathway methylation in post-traumatic stress disorder.
 
