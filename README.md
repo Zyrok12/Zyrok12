@@ -73,7 +73,6 @@ An educational three-person project implementing the central pieces of a neural 
 
 Runnable examples train small networks on synthetic data, Iris and MNIST, while TCGA examples retrieve and encode cancer metadata from the GDC API. This is not intended to replace PyTorch; its purpose is to make forward propagation, backpropagation, gradient flow and parameter updates explicit.
 
-**What this project demonstrates:** understanding of neural-network internals, object-oriented Python, numerical programming and training-loop design.
 
 ## Current private research software
 
