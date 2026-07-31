@@ -6,10 +6,6 @@ I am an MSc candidate in **Genomics, Informatics, Mathematics and AI for Health 
 
 I am interested in a simple question: how can genomic and transcriptomic data be turned into useful, testable hypotheses about disease? My projects combine biology, statistics and machine learning, with a particular interest in cancer dependency, RNA expression and precision medicine.
 
-I am currently looking for a **six-month internship in computational oncology, genomics or precision medicine**.
-
-[LinkedIn](https://www.linkedin.com/in/brunoyoungdecastro/) · [ORCID](https://orcid.org/0009-0001-5757-2056) · [Email](mailto:brunoyc@icloud.com)
-
 ## Flagship project
 
 ### [OncoVulnerability — predicting cancer gene dependencies](https://github.com/Zyrok12/OncoVulnerability)
@@ -54,8 +50,6 @@ The tool reads BED tracks and optional VCF files to measure critical-region cove
 
 Beyond reporting coverage, the research workflow tests whether risk regions are enriched among assay failures or low-callability benchmark regions. Results are written as readable Markdown/HTML reports and machine-readable JSON/TSV files. The repository includes demo data, unit tests and commands for comparing multiple panels.
 
-**What this project demonstrates:** practical genomics file handling, assay design reasoning, statistical enrichment, command-line software design and reproducible reporting.
-
 ### [TCGA-BRCA RNA-seq analysis](https://github.com/Zyrok12/tcga-brca-differential-expression)
 
 A reproducible R/Bioconductor workflow that follows TCGA breast-cancer RNA-seq data from retrieval to biological interpretation.
@@ -63,8 +57,6 @@ A reproducible R/Bioconductor workflow that follows TCGA breast-cancer RNA-seq d
 The analysis downloads STAR count data from the Genomic Data Commons with TCGAbiolinks and compares primary tumors with solid-tissue normal samples using DESeq2. It then visualizes significant genes with a volcano plot and heatmap, tests ERBB2 expression groups with Kaplan–Meier and Cox survival analyses, and performs Gene Ontology Biological Process enrichment using the complete tested gene set as the background universe.
 
 The project also uses cross-validated LASSO logistic regression to distinguish tumor from normal samples and identify the expression features retained by the model. It is deliberately presented as an exploratory learning project: the repository documents the absence of an external cohort, possible batch effects and the limits of drawing clinical conclusions from this analysis.
-
-**What this project demonstrates:** RNA-seq quantification workflows, differential expression, cancer biology, survival analysis, regularized classification and pathway enrichment.
 
 ### [CardI-HACK clinical genomics challenge](https://github.com/georgyzaouk/Cardi-HACK-data-challenge-group6)
 
@@ -74,7 +66,6 @@ The workflow includes exploratory analysis, missing-data review, encoding and sc
 
 Although this project is outside oncology, it gave me experience working with patient-level clinical and genetic variables, preventing data leakage and communicating a team analysis under a data-challenge deadline.
 
-**What this project demonstrates:** multimodal clinical-genetic modeling, polygenic-risk features, classification, team collaboration and scientific communication.
 
 ### [Deep-learning framework from scratch](https://github.com/Zyrok12/2526-m1geniomhe-group-7-main)
 
@@ -105,17 +96,7 @@ Current validation work uses GIAB HG002, CDC GeT-RM pharmacogenomic consensus sa
 - **Genomics and transcriptomics:** RNA-seq, differential expression, TCGA/GDC, DepMap, VEP, GATK, CNV analysis, PGx resources, EWAS/GWAS and PLINK2
 - **Reproducibility:** Linux/WSL, Git, Conda, Docker/Apptainer, HPC workflows, tests, versioned inputs and machine-readable outputs
 
-## How I approach research software
-
-- Start with a clear biological question and simple baselines.
-- Use held-out and external data when they are available.
-- Separate technical confidence from biological or clinical interpretation.
-- Report limitations alongside positive results.
-- Keep analyses reproducible enough that another researcher can inspect and run them.
-
 ## Contact
-
-I am happy to discuss internships, computational biology projects or research collaborations.
 
 - [LinkedIn](https://www.linkedin.com/in/brunoyoungdecastro/)
 - [ORCID](https://orcid.org/0009-0001-5757-2056)
