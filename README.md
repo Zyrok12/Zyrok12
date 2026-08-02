@@ -1,12 +1,42 @@
 # Bruno Young de Castro
 
-**Cancer genomics · Machine learning · Translational bioinformatics**
+**Computational genomics · Pharmacogenomics · Machine learning for precision medicine**
 
 I am an MSc candidate in **Genomics, Informatics, Mathematics and AI for Health (GENIOMHE)** at Université Paris-Saclay, with a BSc in Cell and Molecular Biology from the University of South Florida.
 
-I am interested in a simple question: how can genomic and transcriptomic data be turned into useful, testable hypotheses about disease? My projects combine biology, statistics and machine learning, with a particular interest in cancer dependency, RNA expression and precision medicine.
+I am interested in a simple question: how can genomic and transcriptomic data be turned into useful, testable hypotheses about disease? My projects combine biology, statistics and machine learning, with a particular interest in pharmacogenomics, cancer dependency and precision medicine. Increasingly they also involve building the software a lab actually needs in order to ask those questions at all.
 
-## Flagship project
+---
+
+## Flagship projects
+
+### [PGX Pipeline — end-to-end pharmacogenomics for WES cohorts](https://github.com/Zyrok12/pgx-showcase)
+
+**▶ Try it live: [MegaVCF Explorer](https://zyrok12.github.io/pgx-showcase/demo/mega_vcf_explorer.html) · [Analytics Dashboard](https://zyrok12.github.io/pgx-showcase/demo/analytics_dashboard_interactive.html)** — real pipeline output on a synthetic cohort, running in your browser.
+
+I was assigned an internship project on genetic variants associated with response to platinum-salt chemotherapy in lung cancer, and I could not start it. The lab had no CNV calling, and everything between raw reads and interpretation was outsourced — results took months and often came back incomplete. The biology was blocked on a data-engineering problem, so I built the missing infrastructure: a fully local pipeline taking a lab from FASTQ to interpretation-ready evidence without patient data ever leaving the building.
+
+FASTQ → alignment → SNV/indel and CNV calling → VEP annotation → pharmacogenomic database enrichment → cohort analytics → an interactive variant browser researchers can actually use. Four entry points (FASTQ, BAM/CRAM, raw VCF, filtered VCF), 19 checkpointed stages, resume and retry.
+
+Validation on GIAB HG002, whole-exome:
+
+| Caller | F1 |
+|---|---:|
+| GATK HaplotypeCaller | 0.902 |
+| Strelka2 | 0.909 |
+| DeepVariant | 0.911 |
+| PGX ensemble (PASS tier only) | 0.907 |
+| **PGX ensemble + ML triage** | **0.929** |
+
+Two design decisions did most of the work. First, calls are tiered PASS/REVIEW/FAIL rather than hard-filtered, and a **calibrated gradient-boosted tree** re-scores the REVIEW tier into P(real) — rescuing 1,373 genuine variants and dropping 215 artifacts on HG002, worth +0.022 F1. Hard thresholds preferentially delete true variants in pharmacogenes, which sit beside pseudogenes and therefore always look borderline. Second, CNVs come from a **five-caller consensus** that merges fragmented bins within each caller before voting, deliberately mixing bin-based and target-based callers so their failure modes do not correlate, and reports breakpoint uncertainty rather than implying precision that WES cannot deliver.
+
+On a synthetic cohort with a planted truth set: F1 0.996 for SNVs/indels and 0.978 for CNVs, with **zero false positives in both validations** — the explicit design goal, since clinical research conclusions must never rest on variants that do not exist.
+
+The showcase repository holds full architecture and methods documentation, validation results with an honest limitations section, and two runnable source excerpts: the triage model and the CNV consensus algorithm. The complete pipeline (~40 modules) remains private as an active research platform. Research use only; it is not a diagnostic device and has not undergone clinical validation.
+
+[Live demos and documentation](https://zyrok12.github.io/pgx-showcase/) · [Repository](https://github.com/Zyrok12/pgx-showcase)
+
+---
 
 ### [OncoVulnerability — predicting cancer gene dependencies](https://github.com/Zyrok12/OncoVulnerability)
 
@@ -40,6 +70,8 @@ The repository includes the complete V1–V3 results, figures, saved artifacts a
 
 [Read the results](https://github.com/Zyrok12/OncoVulnerability/tree/main/results) · [Try the model](https://github.com/Zyrok12/OncoVulnerability#how-to-try-the-model-with-your-own-data)
 
+---
+
 ## Other selected projects
 
 ### [Panel Bias Auditor Lite](https://github.com/Zyrok12/Panel-Bias-Auditor)
@@ -66,21 +98,13 @@ The workflow includes exploratory analysis, missing-data review, encoding and sc
 
 Although this project is outside oncology, it gave me experience working with patient-level clinical and genetic variables, preventing data leakage and communicating a team analysis under a data-challenge deadline.
 
-
 ### [Deep-learning framework from scratch](https://github.com/Zyrok12/2526-m1geniomhe-group-7-main)
 
 An educational three-person project implementing the central pieces of a neural network library in Python and NumPy. The framework contains a tensor-based automatic-differentiation engine, computation graphs, trainable parameters, linear layers, module registration, mean-squared-error loss, stochastic gradient descent with optional momentum, data loaders and common preprocessing tools.
 
 Runnable examples train small networks on synthetic data, Iris and MNIST, while TCGA examples retrieve and encode cancer metadata from the GDC API. This is not intended to replace PyTorch; its purpose is to make forward propagation, backpropagation, gradient flow and parameter updates explicit.
 
-
-## Current private research software
-
-### PGX Pipeline — WES pharmacogenomics platform
-
-I am also developing a private, research-use workflow that accepts FASTQ, BAM/CRAM or VCF inputs and produces annotated variant, CNV, pharmacogenomic and cohort-analysis outputs. The platform combines VEP annotation with resources including PharmGKB, CPIC, PharmVar, DPWG, ClinVar and gnomAD; adds star-allele, diplotype and phenotype interpretation layers; and records versioned manifests for reproducibility.
-
-Current validation work uses GIAB HG002, CDC GeT-RM pharmacogenomic consensus samples and planted-truth synthetic cohorts. The repository remains private because it is an active research platform. It is not a diagnostic device.
+---
 
 ## Research and publication
 
@@ -88,12 +112,16 @@ Current validation work uses GIAB HG002, CDC GeT-RM pharmacogenomic consensus sa
 
 - **Ongoing research:** second-author manuscript in preparation with the Uddin Genomics Lab on an epigenome-wide association study of glucocorticoid-pathway methylation in post-traumatic stress disorder.
 
+## Currently working on
+
+Extending the PGX platform with star-allele and haplotype calling validated against CDC GeT-RM consensus samples, and a deep-learning model that predicts function and dosing guidance for *novel* pharmacogene variants — the known ones only need a CPIC lookup. Longer term, moving the platform toward multi-omics, starting with transcriptomics.
+
 ## Technical toolkit
 
 - **Programming:** Python, R, Bash and C/C++
-- **Machine learning:** scikit-learn, PyTorch, regularized regression, tree-based models, neural networks, survival analysis, model evaluation and interpretation
-- **Genomics and transcriptomics:** RNA-seq, differential expression, TCGA/GDC, DepMap, VEP, GATK, CNV analysis, PGx resources, EWAS/GWAS and PLINK2
-- **Reproducibility:** Linux/WSL, Git, Conda, Docker/Apptainer, HPC workflows, tests, versioned inputs and machine-readable outputs
+- **Machine learning:** scikit-learn, PyTorch, regularized regression, tree-based models, neural networks, probability calibration, survival analysis, model evaluation and interpretation
+- **Genomics and transcriptomics:** RNA-seq, differential expression, TCGA/GDC, DepMap, VEP, GATK, DeepVariant, CNV ensemble calling, PGx resources (PharmGKB, CPIC, PharmVar, DPWG), EWAS/GWAS and PLINK2
+- **Reproducibility:** Linux/WSL, Git, Conda, Docker/Apptainer, HPC workflows, tests, versioned inputs, run manifests and machine-readable outputs
 
 ## Contact
 
